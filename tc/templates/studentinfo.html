@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block extrahead %}
+	<title>Student Information</title>
+{% endblock %}
+{% block content %}
+	<div align=center id="courseslist"><br><br>
+		<h1>Courses joined by {{ student.name }}</h1><br>
+		<table border=1>
+		<tr><th>Course Name</th><th>Course Subject</th><th>Course Faculty Name</th><th>Start Date</th><th>End Date</th></tr>
+		{% for course in student.course_set.all %}
+		<tr><td><a href="/course-{{ course.slug }}/">{{ course.name }}</a></td>
+		<td>{{ course.subject }}</td>
+		<td>{{ course.faculty_name }}</td>
+		<td>{{ course.start_date }}</td>
+		<td>{{ course.end_date }}</td>
+		</tr>
+		{% endfor %}</table><br><br>
+		<a href="/">Click to Go to Home Page</a>
+	</div>
+{% endblock %}

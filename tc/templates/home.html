@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block extrahead %}
+	<title>Training Calender</title>
+{% endblock %}
+{% block content %}
+	<div align=center id="courseslist">
+		<h1>Courses List</h1><br>
+		<form method='GET' action=''>
+		<input type='text' name='q' placeholder='Search Courses'/>
+		<input type='submit' value='Search' />
+		</form><br>
+		{% for course in courses %}
+		<a href="course-{{ course.slug }}/">{{ course.name }}</a><br>
+		{% endfor %}
+	</div>
+	<div align=center id="studentslist">
+		<h1>Students List</h1><br>
+		<form method='GET' action=''>
+		<input type='text' name='r' placeholder='Search Students'/>
+		<input type='submit' value='Search' />
+		</form><br>
+		{% for student in students %}
+		<a href="student-{{ student.slug }}/">{{ student.name }}</a><br>
+		{% endfor %}
+	</div>
+{% endblock %}
